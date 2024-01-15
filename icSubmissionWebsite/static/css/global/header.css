@@ -1,0 +1,11 @@
+.header-img {
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.header-img > imh {
+  overflow-clip-margin: content-box !important;
+  overflow: clip !important;
+  vertical-align: middle !important;
+}

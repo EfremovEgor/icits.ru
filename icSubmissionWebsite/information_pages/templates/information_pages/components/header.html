@@ -1,0 +1,417 @@
+{% load static %}
+<header>
+  <!-- <div style="background-color: #3772AA"><img src="./0afbbd7a4a63413d8d6ca498a1a915fa.jpeg" style="max-width: 1130px;margin-left: auto;margin-right: auto;display: block; width: 100%;"></div> -->
+  <div
+    class="uk-height-medium uk-background-cover uk-light"
+    data-src="{% static '/images/information_pages/header.png' %}?fit=crop&w=650&h=433&q=80"
+    uk-img="loading: eager"
+    style="height: 10rem"
+  >
+    <div style="display: flex; justify-content: space-around">
+      <div style="padding: 15px">
+        <p
+          style="
+            font-size: calc((100vw - 30rem) / (80 - 30) * (0.8 - 0.6) + 0.9rem);
+            font-weight: bold;
+            color: white;
+          "
+        >
+          ICITS 2024<br />International Conference on Information and Technical
+          Systems<br />28-30 May 2024<br />RUDN, Moscow, Russia
+        </p>
+      </div>
+      <div style="padding: 15px">
+        <img
+          src="{% static '/images/information_pages/header-logo.png' %}"
+          width="450"
+          height="450"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="uk-hidden@s">
+    <div class="uk-position-relative">
+      <nav class="uk-navbar-container" style="background-color: #002159">
+        <div class="uk-container">
+          <div
+            uk-navbar="mode: click; dropbar: true; dropbar-anchor: !.uk-navbar-container; target-y: !.uk-navbar-container"
+          >
+            <div class="uk-navbar-left">
+              <ul class="uk-navbar-nav" style="background-color: #002159">
+                <li>
+                  <a
+                    class="uk-navbar-toggle"
+                    uk-navbar-toggle-icon
+                    href="#"
+                  ></a>
+                  <div
+                    class="uk-navbar-dropdown"
+                    style="background-color: #002159"
+                  >
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                      <li class="uk-active">
+                        <a
+                          href="/"
+                          style="
+                            color: white;
+                            opacity: 0.5;
+                            padding: 0.5rem 1rem;
+                            padding-left: 0;
+                            padding-right: 0;
+                            display: block;
+                            font-size: 1.07rem;
+                            font-weight: 300;
+                            font-family: Arial, 'Helvetica Neue', Helvetica,
+                              sans-serif;
+                          "
+                          >Home</a
+                        >
+                      </li>
+                      <li class="uk-active">
+                        <a
+                          href="/about"
+                          style="
+                            color: white;
+                            opacity: 0.5;
+                            padding: 0.5rem 1rem;
+                            padding-left: 0;
+                            padding-right: 0;
+                            display: block;
+                            font-size: 1.07rem;
+                            font-weight: 300;
+                            font-family: Arial, 'Helvetica Neue', Helvetica,
+                              sans-serif;
+                          "
+                          >About</a
+                        >
+                      </li>
+                      <li class="uk-active">
+                        <a
+                          href="/committee"
+                          style="
+                            color: white;
+                            opacity: 0.5;
+                            padding: 0.5rem 1rem;
+                            padding-left: 0;
+                            padding-right: 0;
+                            display: block;
+                            font-size: 1.07rem;
+                            font-weight: 300;
+                            font-family: Arial, 'Helvetica Neue', Helvetica,
+                              sans-serif;
+                          "
+                          >Committee</a
+                        >
+                      </li>
+                      <li class="uk-active">
+                        <a
+                          href="/calendar-of-events"
+                          style="
+                            color: white;
+                            opacity: 0.5;
+                            padding: 0.5rem 1rem;
+                            padding-left: 0;
+                            padding-right: 0;
+                            display: block;
+                            font-size: 1.07rem;
+                            font-weight: 300;
+                            font-family: Arial, 'Helvetica Neue', Helvetica,
+                              sans-serif;
+                          "
+                          >Calendar of events</a
+                        >
+                      </li>
+                      <li class="uk-active">
+                        <a
+                          href="/registration"
+                          style="
+                            color: white;
+                            opacity: 0.5;
+                            padding: 0.5rem 1rem;
+                            padding-left: 0;
+                            padding-right: 0;
+                            display: block;
+                            font-size: 1.07rem;
+                            font-weight: 300;
+                            font-family: Arial, 'Helvetica Neue', Helvetica,
+                              sans-serif;
+                          "
+                          >Registration</a
+                        >
+                      </li>
+                      <li class="uk-active">
+                        <a
+                          href="/abstract-submission"
+                          style="
+                            color: white;
+                            opacity: 0.5;
+                            padding: 0.5rem 1rem;
+                            padding-left: 0;
+                            padding-right: 0;
+                            display: block;
+                            font-size: 1.07rem;
+                            font-weight: 300;
+                            font-family: Arial, 'Helvetica Neue', Helvetica,
+                              sans-serif;
+                          "
+                          >Abstract Submission</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          style="
+                            color: white;
+                            opacity: 0.5;
+                            padding: 0.5rem 1rem;
+                            padding-left: 0;
+                            padding-right: 0;
+                            display: block;
+                            font-size: 1.07rem;
+                            font-weight: 300;
+                            font-family: Arial, 'Helvetica Neue', Helvetica,
+                              sans-serif;
+                          "
+                          >Event <span uk-navbar-parent-icon></span
+                        ></a>
+                        <div
+                          uk-dropdown="animation: uk-animation-slide-top-small; animate-out: true"
+                        >
+                          <ul class="uk-nav uk-dropdown-nav">
+                            <li>
+                              <a
+                                href="/venue"
+                                style="
+                                  color: #212529;
+                                  font-weight: 400;
+                                  font-size: 1rem;
+                                "
+                                >Venue</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                href="/accommodation"
+                                style="
+                                  color: #212529;
+                                  font-weight: 400;
+                                  font-size: 1rem;
+                                "
+                                >Accommodation</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+
+                      <li class="uk-active">
+                        <a
+                          href="/contacts"
+                          style="
+                            color: white;
+                            opacity: 0.5;
+                            padding: 0.5rem 1rem;
+                            padding-left: 0;
+                            padding-right: 0;
+                            display: block;
+                            font-size: 1.07rem;
+                            font-weight: 300;
+                            font-family: Arial, 'Helvetica Neue', Helvetica,
+                              sans-serif;
+                          "
+                          >Contact</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- <div class="uk-navbar-right">
+                              <ul class="uk-navbar-nav">
+                                  <li>
+                                      <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="#"></a>
+                                  </li>
+                          </div> -->
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div class="uk-visible@s">
+    <nav
+      class="uk-navbar-container"
+      style="background-color: #002159; padding: 0.5rem 1rem"
+    >
+      <div class="uk-container">
+        <div uk-navbar>
+          <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav">
+              <li
+                class="uk-active"
+                style="font-size: 1.07rem; font-weight: 300"
+              >
+                <a
+                  href="/"
+                  style="
+                    color: white;
+                    opacity: 0.5;
+                    padding-left: 0.5rem;
+                    padding-right: 0.5rem;
+                    display: block;
+                    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+                  "
+                  >Home</a
+                >
+              </li>
+              <li
+                class="uk-active"
+                style="font-size: 1.07rem; font-weight: 300"
+              >
+                <a
+                  href="/about"
+                  style="
+                    color: white;
+                    opacity: 0.5;
+                    padding-left: 0.5rem;
+                    padding-right: 0.5rem;
+                    display: block;
+                    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+                  "
+                  >About</a
+                >
+              </li>
+              <li
+                class="uk-active"
+                style="font-size: 1.07rem; font-weight: 300"
+              >
+                <a
+                  href="/committee"
+                  style="
+                    color: white;
+                    opacity: 0.5;
+                    padding-left: 0.5rem;
+                    padding-right: 0.5rem;
+                    display: block;
+                    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+                  "
+                  >Committee</a
+                >
+              </li>
+              <li
+                class="uk-active"
+                style="font-size: 1.07rem; font-weight: 300"
+              >
+                <a
+                  href="/calendar-of-events"
+                  style="
+                    color: white;
+                    opacity: 0.5;
+                    padding-left: 0.5rem;
+                    padding-right: 0.5rem;
+                    display: block;
+                    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+                  "
+                  >Calendar of Events</a
+                >
+              </li>
+              <li
+                class="uk-active"
+                style="font-size: 1.07rem; font-weight: 300"
+              >
+                <a
+                  href="/registration"
+                  style="
+                    color: white;
+                    opacity: 0.5;
+                    padding-left: 0.5rem;
+                    padding-right: 0.5rem;
+                    display: block;
+                    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+                  "
+                  >Registration</a
+                >
+              </li>
+              <li
+                class="uk-active"
+                style="font-size: 1.07rem; font-weight: 300"
+              >
+                <a
+                  href="/abstract-submission"
+                  style="
+                    color: white;
+                    opacity: 0.5;
+                    padding-left: 0.5rem;
+                    padding-right: 0.5rem;
+                    display: block;
+                    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+                  "
+                  >Abstract Submission</a
+                >
+              </li>
+              <li style="font-size: 1.07rem; font-weight: 300">
+                <a
+                  href="#"
+                  style="
+                    color: white;
+                    opacity: 0.5;
+                    padding-left: 0;
+                    padding-right: 0;
+                    display: block;
+                    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+                  "
+                  >Event <span uk-navbar-parent-icon></span
+                ></a>
+                <div
+                  uk-dropdown="animation: uk-animation-slide-top-small; animate-out: true"
+                >
+                  <ul class="uk-nav uk-dropdown-nav">
+                    <li>
+                      <a
+                        href="/venue"
+                        style="
+                          color: #212529;
+                          font-weight: 400;
+                          font-size: 1rem;
+                        "
+                        >Venue</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/accommodation"
+                        style="
+                          color: #212529;
+                          font-weight: 400;
+                          font-size: 1rem;
+                        "
+                        >Accommodation</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li
+                class="uk-active"
+                style="font-size: 1.07rem; font-weight: 300"
+              >
+                <a
+                  href="/contacts"
+                  style="
+                    color: white;
+                    opacity: 0.5;
+                    padding-left: 0.5rem;
+                    padding-right: 0.5rem;
+                    display: block;
+                    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+                  "
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

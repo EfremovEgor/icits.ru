@@ -1,0 +1,74 @@
+{% extends "components/base.html" %} {% block content %} {% load static %}
+<link rel="stylesheet" href="{% static 'css/submission_system/auth.css' %}" />
+<script src="{% static 'js/auth.js' %}"></script>
+
+<div class="container">
+  <h2>Abstract Portal - Sing In</h2>
+  <p>
+    <span
+      >Thank you for your interest in presenting. The contribution of presenters
+      is critical and we value your input greatly. Please sign into the Abstract
+      Submission Portal with your account email address and password. If you
+      have not yet submitted an abstract, please create a new account below. If
+      you have any questions regarding your submission, please contact us at:
+      <a style="color: rgb(47, 164, 231)" href=""
+        >esaconferencebureau@atpi.com</a
+      >
+    </span>
+    <br />
+    <br />
+    <span
+      >Have you forgotten your password? Please click on the following link in
+      order to reset it: Please note that this action may take several minutes
+    </span>
+    <br />
+    <br />
+    <span style="color: red"
+      >Note that you will have to select "Sign in" only if you already have an
+      account (for example if you have already submitted an abstract and wish to
+      edit it or submit a new one). If you log in for the first time, you will
+      then have to click on "Create New Account"
+    </span>
+  </p>
+  <div class="auth-row">
+    <div class="sign_in-container">
+      <h2>Sing In</h2>
+      <form class="form-container" action="/login/" method="post">
+        {% csrf_token %}
+        <div class="form-input-container">
+          <label for="email" class="input-label"> Email </label>
+          {{login_form.email}}
+        </div>
+        <div class="form-input-container">
+          <label for="password" class="input-label"> Password </label>
+          {{login_form.password}}
+        </div>
+        <a href="" class="underlined-link">Forgot password? </a>
+        <input class="button" type="submit" value="Login" />
+      </form>
+    </div>
+    <div class="sign_up-container">
+      <h2>Registration</h2>
+      <form
+        id="register_form"
+        class="form-container"
+        action="/register/"
+        method="post"
+      >
+        {% csrf_token %}
+        <div class="form-input-container">
+          <label for="email" class="input-label"> Email </label>
+          {{registration_form.email}}
+        </div>
+        <div class="form-input-container">
+          <label for="email" class="input-label"> Confirm Email </label>
+          {{registration_form.confirm_email}}
+        </div>
+        <button onclick="submitRegisterForm(this)" type="button" class="button">
+          Register
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+{%endblock %}

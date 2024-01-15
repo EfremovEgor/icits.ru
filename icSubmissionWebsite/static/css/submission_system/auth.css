@@ -1,0 +1,30 @@
+.auth-row {
+  display: flex;
+  justify-content: space-around;
+}
+.form-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.form-input {
+  max-width: 250px;
+  height: 30px;
+  font-size: 16px;
+  border-radius: 0px;
+  border: solid 1px;
+  border-color: black;
+}
+
+.form-input:focus-visible {
+  border: solid 2px;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: fit-content;
+}
+.no-account-text {
+  font-size: 12px;
+}

@@ -1,0 +1,26 @@
+.uk-dropnav-dropbar {
+  background-color: #002159;
+}
+
+.header-img {
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+::marker {
+  color: #444444;
+}
+
+.button-a {
+  color: #000;
+}
+
+.button-a:hover {
+  color: #007bff;
+  transition: 0.07s;
+}
+.uk-dropbar {
+  background-color: #002159 !important;
+}
