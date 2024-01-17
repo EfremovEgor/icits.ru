@@ -5,9 +5,67 @@
     class="uk-height-medium uk-background-cover uk-light"
     data-src="{% static '/images/information_pages/header.png' %}?fit=crop&w=650&h=433&q=80"
     uk-img="loading: eager"
+    style="height: 15rem"
+  >
+    <div class="uk-container">
+      <div style="display: flex; justify-content: space-around">
+        <div style="padding: 15px">
+          <span
+            style="
+              font-size: calc(
+                (100vw - 30rem) / (80 - 30) * (0.6 - 0.3) + 1.2rem
+              );
+              font-weight: bold;
+              color: white;
+              text-shadow: 3px 2px 2px black;
+            "
+            >ICITS 2024</span
+          ><br />
+          <span
+            style="
+              font-size: calc(
+                (100vw - 30rem) / (80 - 30) * (0.8 - 0.6) + 0.9rem
+              );
+              font-weight: bold;
+              color: white;
+              text-shadow: 3px 2px 2px black;
+            "
+            >International Conference on Information and Technical Systems</span
+          >
+          <p
+            style="
+              font-size: calc(
+                (100vw - 30rem) / (80 - 30) * (0.8 - 0.6) + 0.9rem
+              );
+              color: white;
+              text-shadow: 3px 2px 2px black;
+            "
+          >
+            28-20 May 2024<br />RUDN Univeristy, Moscow, Russia
+          </p>
+        </div>
+        <div style="padding: 15px">
+          <img
+            src="{% static '/images/information_pages/header-logo.png' %}"
+            width="300"
+            height="300"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% comment %}
+  <div
+    class="uk-height-medium uk-background-cover uk-light"
+    data-src="{% static '/images/information_pages/header.png' %}?fit=crop&w=650&h=433&q=80"
+    uk-img="loading: eager"
     style="height: 10rem"
   >
-    <div style="display: flex; justify-content: space-around">
+    <div
+      class="uk-container"
+      style="display: flex; justify-content: space-around"
+    >
       <div style="padding: 15px">
         <p
           style="
@@ -17,19 +75,20 @@
           "
         >
           ICITS 2024<br />International Conference on Information and Technical
-          Systems<br />28-30 May 2024<br />RUDN, Moscow, Russia
+          Systems<br /><br /><br />28-30 May 2024<br />RUDN, Moscow, Russia
         </p>
       </div>
       <div style="padding: 15px">
         <img
           src="{% static '/images/information_pages/header-logo.png' %}"
-          width="450"
-          height="450"
+          width="300"
+          height="300"
         />
       </div>
     </div>
   </div>
-  <div class="uk-hidden@s">
+  {% endcomment %}
+  <div class="uk-hidden@m">
     <div class="uk-position-relative">
       <nav class="uk-navbar-container" style="background-color: #002159">
         <div class="uk-container">
@@ -238,20 +297,31 @@
       </nav>
     </div>
   </div>
-  <div class="uk-visible@s">
+  <div class="uk-visible@m">
     <nav
       class="uk-navbar-container"
       style="background-color: #002159; padding: 0.5rem 1rem"
     >
-      <div class="uk-container">
+      <div class="uk-container" style="max-width: 980px; margin: auto">
         <div uk-navbar>
-          <div class="uk-navbar-left">
-            <ul class="uk-navbar-nav">
+          <div class="uk-navbar-center" style="width: 100%">
+            <ul
+              class="uk-navbar-nav"
+              style="
+                gap: 0px;
+                height: min-content;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
               <li
                 class="uk-active"
                 style="font-size: 1.07rem; font-weight: 300"
               >
                 <a
+                  class="header-link"
                   href="/"
                   style="
                     color: white;
@@ -269,6 +339,7 @@
                 style="font-size: 1.07rem; font-weight: 300"
               >
                 <a
+                  class="header-link"
                   href="/about"
                   style="
                     color: white;
@@ -286,6 +357,7 @@
                 style="font-size: 1.07rem; font-weight: 300"
               >
                 <a
+                  class="header-link"
                   href="/committee"
                   style="
                     color: white;
@@ -303,6 +375,7 @@
                 style="font-size: 1.07rem; font-weight: 300"
               >
                 <a
+                  class="header-link"
                   href="/calendar-of-events"
                   style="
                     color: white;
@@ -320,6 +393,7 @@
                 style="font-size: 1.07rem; font-weight: 300"
               >
                 <a
+                  class="header-link"
                   href="/registration"
                   style="
                     color: white;
@@ -337,6 +411,7 @@
                 style="font-size: 1.07rem; font-weight: 300"
               >
                 <a
+                  class="header-link"
                   href="/abstract-submission"
                   style="
                     color: white;
@@ -351,6 +426,7 @@
               </li>
               <li style="font-size: 1.07rem; font-weight: 300">
                 <a
+                  class="header-link"
                   href="#"
                   style="
                     color: white;
@@ -396,6 +472,7 @@
                 style="font-size: 1.07rem; font-weight: 300"
               >
                 <a
+                  class="header-link"
                   href="/contacts"
                   style="
                     color: white;

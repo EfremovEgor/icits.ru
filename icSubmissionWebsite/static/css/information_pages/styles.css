@@ -24,3 +24,14 @@
 .uk-dropbar {
   background-color: #002159 !important;
 }
+.uk-navbar-container {
+  padding: 0px !important;
+}
+.header-link {
+  padding: 28px 0px !important;
+  text-transform: none !important;
+  display: flex !important;
+  font-size: 1.07rem !important;
+  min-height: fit-content !important;
+  text-align: center;
+}
