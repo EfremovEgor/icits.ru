@@ -1,0 +1,330 @@
+{% extends "profile/components/base.html" %} {% block content %} {%load static%}
+<link
+  rel="stylesheet"
+  href="{% static 'css/submission_system/profile/abstract_submission.css' %}"
+/>
+<script src="{% static 'js/profile/abstract_submission.js' %}"></script>
+
+<div class="container">
+  <h2>Abstract Submission</h2>
+  <div class="submission-window">
+    <div class="navigation">
+      <button
+        id="title_and_presentation_type"
+        onclick="swap_windows(this)"
+        class="navigation-button"
+      >
+        Title and Preferred Presentation Type
+      </button>
+      <button id="topic" onclick="swap_windows(this)" class="navigation-button">
+        Topic
+      </button>
+      <button
+        id="authours_and_affilations"
+        onclick="swap_windows(this)"
+        class="navigation-button"
+      >
+        Authors And Affilations
+      </button>
+      <button
+        id="abstract"
+        onclick="swap_windows(this)"
+        class="navigation-button"
+      >
+        Abstract
+      </button>
+      <button
+        id="review"
+        onclick="swap_windows(this); check_for_errors()"
+        class="navigation-button"
+      >
+        Review
+      </button>
+      <button
+        id="submit_section"
+        onclick="swap_windows(this); check_for_errors()"
+        class="navigation-button"
+      >
+        Submit
+      </button>
+    </div>
+    <div class="form-window" id="title_and_presentation_type">
+      <h3>Abstract Title</h3>
+      <div class="section flex-row">
+        <div class="flex-column">
+          <h4>Title</h4>
+        </div>
+        <div class="flex-column">
+          <textarea
+            class="input-text"
+            id="abstract_title"
+            type="text"
+          ></textarea>
+        </div>
+      </div>
+      <h3>Preferred Presentation Type</h3>
+      <div class="section flex-row">
+        <div class="flex-column">
+          <h4>Presentation Type</h4>
+        </div>
+        <div class="flex-column">
+          <input
+            id="abstract_presentation_type"
+            class="input-text"
+            type="text"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="form-window" hidden id="topic">
+      <h3>Topic</h3>
+      <div class="section flex-row">
+        <div class="flex-column">
+          <h4>Topic</h4>
+        </div>
+        <div class="flex-column">
+          <textarea class="input-text" id="topic_text" type="text"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-window" hidden id="abstract">
+      <h3>Abstract</h3>
+      <div class="section flex-row">
+        <div class="flex-column">
+          <h4>Content</h4>
+        </div>
+        <div class="flex-column">
+          <textarea
+            style="min-height: 300px"
+            class="input-text"
+            id="abstract_text"
+            type="text"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="form-window" hidden id="authours_and_affilations">
+      <div class="block">
+        <h3>Author Affilation</h3>
+        <div class="sub-block" id="affilations">
+          <div class="affilation section" id="1">
+            <div class="affilation-head">
+              <h3>1</h3>
+              <button
+                id="remove_affilation"
+                onclick="delete_affilation(this)"
+                class="button"
+              >
+                x
+              </button>
+            </div>
+
+            <div class="section flex-row">
+              <div class="flex-column">
+                <h4>Affilation</h4>
+              </div>
+              <div class="flex-column">
+                <input
+                  class="input-text"
+                  type="text"
+                  name="company_or_institution"
+                  value="{{contact.company_or_institution}}"
+                />
+              </div>
+            </div>
+
+            <div class="section flex-row">
+              <div class="flex-column">
+                <h4>City/Suburb/Town</h4>
+              </div>
+              <div class="flex-column">
+                <input
+                  class="input-text"
+                  type="text"
+                  name="city"
+                  value="{{contact.city}}"
+                />
+              </div>
+            </div>
+
+            <div class="section flex-row">
+              <div class="flex-column">
+                <h4>Country</h4>
+              </div>
+              <div class="flex-column">
+                <input
+                  class="input-text"
+                  type="text"
+                  name="country"
+                  value="{{contact.country}}"
+                />
+              </div>
+            </div>
+
+            <div class="section flex-row">
+              <div class="flex-column">
+                <h4>State</h4>
+              </div>
+              <div class="flex-column">
+                <input class="input-text" name="country" type="text" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-button-container">
+          <button
+            id="add_affilation"
+            onclick="add_affilation(this)"
+            class="block-button button"
+          >
+            Add Affilation
+          </button>
+        </div>
+      </div>
+      <div class="block">
+        <h3>Abstract Authors</h3>
+        <div class="sub-block" id="authors">
+          <div class="author section" id="1">
+            <div class="author-head">
+              <h3>1</h3>
+              <button
+                id="remove_author"
+                onclick="delete_author(this)"
+                class="button"
+              >
+                x
+              </button>
+            </div>
+
+            <div class="section flex-row">
+              <div class="flex-column">
+                <h4>Title</h4>
+              </div>
+              <div class="flex-column">
+                <input
+                  class="input-text"
+                  type="text"
+                  disabled
+                  name="title"
+                  value="{{contact.title}}"
+                />
+              </div>
+            </div>
+
+            <div class="section flex-row">
+              <div class="flex-column">
+                <h4>First Name</h4>
+              </div>
+              <div class="flex-column">
+                <input
+                  class="input-text"
+                  type="text"
+                  disabled
+                  name="first_name"
+                  value="{{contact.first_name}}"
+                />
+              </div>
+            </div>
+
+            <div class="section flex-row">
+              <div class="flex-column">
+                <h4>Last Name</h4>
+              </div>
+              <div class="flex-column">
+                <input
+                  class="input-text"
+                  type="text"
+                  disabled
+                  name="last_name"
+                  value="{{contact.last_name}}"
+                />
+              </div>
+            </div>
+
+            <div class="section flex-row">
+              <div class="flex-column">
+                <h4>Presenter</h4>
+              </div>
+              <div class="flex-column">
+                <input type="checkbox" name="presenter" />
+              </div>
+            </div>
+
+            <div class="section flex-row">
+              <div class="flex-column">
+                <h4>Organization</h4>
+              </div>
+              <div class="flex-column">
+                <input
+                  class="input-text"
+                  type="text"
+                  disabled
+                  name="organization"
+                  value="{{contact.company_or_institution}}"
+                />
+              </div>
+            </div>
+
+            <div class="section flex-row">
+              <div class="flex-column">
+                <h4>Affilation</h4>
+              </div>
+              <div class="flex-column">
+                <input
+                  class="input-text"
+                  type="text"
+                  name="affilation"
+                  value="1"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-button-container">
+          <button
+            id="add_author"
+            onclick="add_author(this)"
+            class="block-button button"
+          >
+            Add Author
+          </button>
+        </div>
+      </div>
+      <div class="block">
+        <h3>Presenting author Bio</h3>
+        <div class="section flex-row">
+          <div class="flex-column">
+            <h4>Biography</h4>
+          </div>
+          <div class="flex-column">
+            <textarea
+              style="min-height: 300px"
+              class="input-text"
+              id="bio"
+              type="text"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-window" hidden id="review">
+      <h3>Review Submission</h3>
+      <div class="errors" id="errors"></div>
+    </div>
+
+    <div class="form-window" hidden id="submit_section">
+      <h3>Abstract Submission</h3>
+      <div class="flex-row terms">
+        <input class="checkbox" type="checkbox" />
+        <span><b>I agree to the above Terms and Conditions</b></span>
+      </div>
+      <button onclick="submit_abstract()" class="button">
+        Submit Abstract
+      </button>
+    </div>
+  </div>
+</div>
+{%endblock %}

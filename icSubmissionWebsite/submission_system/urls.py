@@ -1,17 +1,27 @@
 from django.urls import path
+from django.contrib.auth.decorators import login_required
+
 from . import views
 
+app_name = "submission_system"
 
 urlpatterns = [
-    path("submission_system/auth", views.authentification_page, name="auth_page"),
+    path("auth", views.authentification_page, name="auth_page"),
+    path("register", views.register_user, name="register_user"),
+    path("login", views.login_user, name="login_user"),
+    path("activate/<token>/", views.activate, name="activate"),
+    path("profile", views.profile, name="profile"),
+    path("contact", views.contact, name="contact"),
     path(
-        "submission_system/auth/confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/?P<token>[0-9A-Za-z_\-]+)/",
-        views.activate,
-        name="confirm",
+        "contact/create/",
+        login_required(views.CreateContactView.as_view()),
+        name="create_contact",
     ),
     path(
-        "submission_system/auth/create_pending_user",
-        views.create_pending_user,
-        name="create_pending_user",
+        "contact/edit/",
+        login_required(views.EditContactView.as_view()),
+        name="edit_contact",
     ),
+    path("logout", views.user_logout, name="logout_user"),
+    path("abstract/submit", views.submit_abstract, name="submit_abstract"),
 ]

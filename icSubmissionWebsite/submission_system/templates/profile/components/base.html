@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+
+  <head>
+    <link
+      href="{% static '/images/favicon.png' %}"
+      type="image/png"
+      sizes="96x96"
+      rel="icon"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/global/header.css' %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/global/global.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/global/footer.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/submission_system/profile/profile.css' %}"
+    />
+    <title>{{title}}</title>
+
+    {% load i18n %}
+  </head>
+
+  <body>
+    <div class="body">
+      <div class="main-content">
+        {% include "./header.html" %} {% block content %} {% endblock %} 
+        {% include "./footer.html" %}
+      </div>
+    </div>
+  </body>
+</html>

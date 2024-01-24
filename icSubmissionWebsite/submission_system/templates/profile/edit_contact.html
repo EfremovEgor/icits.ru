@@ -1,0 +1,13 @@
+{% extends "profile/components/base.html" %} {% block content %} {%load static%}
+<link
+  rel="stylesheet"
+  href="{% static 'css/submission_system/profile/profile.css' %}"
+/>
+<div class="container">
+  <h2>Update Contact</h2>
+  <form method="post">
+    {% csrf_token %} {{ form }}
+    <input type="submit" />
+  </form>
+</div>
+{%endblock %}

@@ -1,0 +1,43 @@
+{% extends "profile/components/base.html" %} {% block content %} {%load static%}
+<link
+  rel="stylesheet"
+  href="{% static 'css/submission_system/profile/profile.css' %}"
+/>
+<div class="container">
+  <h2>Update Contact Information</h2>
+  {% if is_created %}
+  <p style="margin-bottom: 20px">
+    <span
+      >If you have aready created a contact, you can find the current
+      information associated with your primary contact below. In case you want
+      to update your details, click on the <b>Edit Contact Details</b>.
+    </span>
+  </p>
+
+  {% for name,data in contact.items %}
+
+  <div class="flex-row">
+    <div class="flex-column">
+      <h4><b>{{name}}</b></h4>
+    </div>
+    <div class="flex-column">
+      <span> {{data}} </span>
+    </div>
+  </div>
+  {% endfor %}
+  <a href="contact/edit/" style="margin-top: 20px" class="button"
+    >Edit Contact Details</a
+  >
+  {% else %}
+  <p style="margin-bottom: 20px">
+    <span
+      >If no information is shown below, it means you need to create a contact
+      first. In order to do so, click on the button <b>Create Contact</b> .
+    </span>
+  </p>
+
+  <a href="contact/create/" class="button">Create Contact</a>
+
+  {% endif %}
+</div>
+{%endblock %}

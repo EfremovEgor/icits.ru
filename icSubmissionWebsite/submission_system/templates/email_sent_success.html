@@ -1,0 +1,7 @@
+{% extends "components/base.html" %} {% block content %} {% load static %}
+<link rel="stylesheet" href="{% static 'css/submission_system/auth.css' %}" />
+<div class="container">
+  <h2>{{message}}</h2>
+  <a href="/submission/auth" class="button">Back</a>
+</div>
+{%endblock %}

@@ -1,0 +1,94 @@
+.section {
+  background-color: lightgray;
+  padding: 20px;
+}
+input {
+}
+textarea {
+  min-width: 100%;
+  resize: vertical;
+  padding: 5px;
+}
+.checkbox {
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+input.input-text {
+  min-height: 40px;
+  min-width: 100%;
+  padding-left: 5px;
+}
+
+textarea.input-text {
+  min-height: 70px;
+}
+.submission-window {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.navigation {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+.navigation-button {
+  text-align: start;
+  display: flex;
+  min-height: 50px;
+  align-items: center;
+  border: 1px solid black;
+  background-color: slategrey;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+.navigation-button:hover {
+  background-color: royalblue;
+}
+.form-window {
+  width: 100%;
+}
+
+.block-button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+.affilation-head,
+.author-head {
+  display: flex;
+  justify-content: space-between;
+}
+.errors {
+  background-color: beige;
+  width: 100%;
+  padding: 10px;
+  border: 1px red solid;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.error {
+  background: beige;
+  color: firebrick;
+}
+
+.terms {
+  gap: 10px;
+  padding: 10px;
+  background-color: honeydew;
+  margin: 20px 0px;
+}

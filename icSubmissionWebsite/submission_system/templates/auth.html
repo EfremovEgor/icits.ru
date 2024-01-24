@@ -33,7 +33,7 @@
   <div class="auth-row">
     <div class="sign_in-container">
       <h2>Sing In</h2>
-      <form class="form-container" action="/login/" method="post">
+      <form class="form-container" action="login" method="post">
         {% csrf_token %}
         <div class="form-input-container">
           <label for="email" class="input-label"> Email </label>
@@ -52,7 +52,7 @@
       <form
         id="register_form"
         class="form-container"
-        action="/register/"
+        action="register"
         method="post"
       >
         {% csrf_token %}
@@ -60,13 +60,8 @@
           <label for="email" class="input-label"> Email </label>
           {{registration_form.email}}
         </div>
-        <div class="form-input-container">
-          <label for="email" class="input-label"> Confirm Email </label>
-          {{registration_form.confirm_email}}
-        </div>
-        <button onclick="submitRegisterForm(this)" type="button" class="button">
-          Register
-        </button>
+        {{form.errors}}
+        <button type="submit" class="button">Register</button>
       </form>
     </div>
   </div>
