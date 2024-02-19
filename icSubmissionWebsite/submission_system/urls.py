@@ -23,5 +23,7 @@ urlpatterns = [
         name="edit_contact",
     ),
     path("logout", views.user_logout, name="logout_user"),
-    path("abstract/submit", views.submit_abstract, name="submit_abstract"),
+    path(
+        "abstract/submit/", views.SubmitAbstractView.as_view(), name="submit_abstract"
+    ),
 ]

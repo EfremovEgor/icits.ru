@@ -92,3 +92,6 @@ textarea.input-text {
   background-color: honeydew;
   margin: 20px 0px;
 }
+.terms > span {
+  background-color: honeydew;
+}

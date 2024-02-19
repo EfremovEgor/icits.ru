@@ -72,7 +72,7 @@ function add_affilation(element) {
         <h4>State</h4>
       </div>
       <div class="flex-column">
-        <input class="input-text" name="country" type="text" />
+        <input class="input-text" name="state" type="text" />
       </div>
     </div>
   </div>
@@ -215,7 +215,28 @@ function check_for_errors() {
   if ($("#topic_text").val() == null || $("#topic_text").val() == "") {
     add_error("Topic Required");
   }
+  $(".affilation").each(function (index, element) {
+    affilation = element.id;
+    if (
+      $(this).find('input[name="company_or_institution"]').val() == null ||
+      $(this).find('input[name="company_or_institution"]').val() == ""
+    ) {
+      add_error("Affilation Required for Affilation " + author);
+    }
 
+    if (
+      $(this).find('input[name="city"]').val() == null ||
+      $(this).find('input[name="city"]').val() == ""
+    ) {
+      add_error("City Required for Affilation " + author);
+    }
+    if (
+      $(this).find('input[name="country"]').val() == null ||
+      $(this).find('input[name="country"]').val() == ""
+    ) {
+      add_error("Country Required for Affilation " + author);
+    }
+  });
   $(".author").each(function (index, element) {
     author = element.id;
     if (
@@ -261,10 +282,79 @@ function check_for_errors() {
     add_error("Abstract Required");
   }
 }
+function get_affilation(id) {
+  affilation = $("#" + id + ".affilation");
+  affilation_data = {
+    affilation: affilation.find('input[name="company_or_institution"]').val(),
+    city: affilation.find('input[name="city"]').val(),
+    country: affilation.find('input[name="country"]').val(),
+    state: affilation.find('input[name="state"]').val(),
+  };
+  return affilation_data;
+}
+function get_authors() {
+  authors_data = [];
 
+  $(".author").each(function (index, element) {
+    affilation_id = $(this).find('input[name="affilation"]').val();
+    author = {
+      title: $(this).find('input[name="title"]').val(),
+      first_name: $(this).find('input[name="first_name"]').val(),
+      last_name: $(this).find('input[name="last_name"]').val(),
+      organization: $(this).find('input[name="organization"]').val(),
+      affilation: get_affilation(affilation_id),
+      is_presenter: document.getElementsByName("presenter")[0].checked,
+    };
+    authors_data.push(author);
+  });
+  return authors_data;
+}
+
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== "") {
+    const cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.substring(0, name.length + 1) === name + "=") {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+
+function post(url, data) {
+  const csrfToken = getCookie("csrftoken");
+  $.ajax({
+    type: "POST",
+    headers: {
+      "X-CSRFToken": csrfToken,
+    },
+    async: false,
+    dataType: "json",
+    data: JSON.stringify(data),
+    url: url,
+    success: function (response) {
+      return response;
+    },
+    error: function (response) {
+      return response;
+    },
+  });
+}
 function submit_abstract() {
-  //   if (errors != 0) {
-  //     alert("There are multiple errors, please check Review section");
-  //     return;
-  //   }
+  data = {
+    title: $("#abstract_title").val(),
+    presentation_type: $("#abstract_presentation_type").val(),
+    topic: $("#topic_text").val(),
+    authors: get_authors(),
+    bio: $("#bio").val(),
+    abstract: $("#abstract_text").val(),
+  };
+  response = post("", data);
+  console.log(response);
+
+  window.location(response.url);
 }

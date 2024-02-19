@@ -43,7 +43,7 @@ class Contact(models.Model):
         blank=False,
     )
     last_name = models.CharField(
-        _("First Name"),
+        _("Last Name"),
         max_length=200,
         null=False,
         blank=False,
@@ -102,6 +102,7 @@ class Submission(models.Model):
         max_length=300, choices=PRESENTATION_TYPE_CHOICES
     )
     is_draft = models.BooleanField(_("Draft"), default=True)
+    submitter = models.ForeignKey(Submitter, on_delete=models.CASCADE)
 
 
 class Topic(models.Model):
@@ -111,6 +112,7 @@ class Topic(models.Model):
 class SubmissionDetails(models.Model):
     submission = models.OneToOneField(Submission, on_delete=models.CASCADE)
     topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)
+    bio = models.TextField(_("Biography"))
 
 
 class AuthorAffilation(models.Model):

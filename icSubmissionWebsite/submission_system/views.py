@@ -1,12 +1,24 @@
 import json
+from re import A
 import secrets
 import string
 import uuid
+from jsonschema import validate
+from jsonschema.exceptions import ValidationError
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from icSubmissionWebsite import settings
-from submission_system.models import Contact, Submitter
+from submission_system.models import (
+    Contact,
+    Submitter,
+    Submission,
+    Topic,
+    SubmissionDetails,
+    AuthorAffilation,
+    SubmissionAuthorDetails,
+    Abstract,
+)
 from .forms import CreateContactForm, LoginForm, RegistrationForm
 from django.core.cache import cache
 from django.core.mail import send_mail
@@ -14,6 +26,9 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic.edit import FormView, UpdateView
+from django.views import View
+from django.contrib.auth.mixins import LoginRequiredMixin
+from . import schemas
 
 
 def authentification_page(request):
@@ -147,7 +162,7 @@ def contact(request):
     )
 
 
-class CreateContactView(FormView):
+class CreateContactView(FormView, LoginRequiredMixin):
     form_class = CreateContactForm
     template_name = "profile/create_contact.html"
     success_url = reverse_lazy("submission_system:contact")
@@ -167,7 +182,7 @@ class CreateContactView(FormView):
         return super().form_valid(form)
 
 
-class EditContactView(UpdateView):
+class EditContactView(UpdateView, LoginRequiredMixin):
     model = Contact
     fields = [
         "title",
@@ -194,13 +209,76 @@ def user_logout(request):
     return redirect(reverse_lazy("submission_system:auth_page"))
 
 
-def submit_abstract(request):
-    contact = Contact.objects.filter(submitter__id=request.user.id).first()
-    return render(
-        request,
-        "profile/submit_abstract.html",
-        {
-            "title": "Abstract Submission ",
-            "contact": contact,
-        },
-    )
+class SubmitAbstractView(LoginRequiredMixin, View):
+    template_name = "profile/submit_abstract.html"
+    login_url = "submission_system:auth_page"
+
+    def get(self, request):
+        contact = Contact.objects.filter(submitter__id=request.user.id).first()
+
+        return render(
+            request,
+            self.template_name,
+            {
+                "title": "Abstract Submission ",
+                "contact": contact,
+            },
+        )
+
+    def post(self, request, *args, **kwargs):
+        data = json.loads(request.body)
+        try:
+            validate(data, schemas.abstract_schema)
+        except ValidationError as ex:
+            return JsonResponse(
+                {
+                    "status": 0,
+                    "message": _(str(ex)),
+                    "url": request.build_absolute_uri(
+                        reverse_lazy("submission_system:profile")
+                    ),
+                }
+            )
+        submission = Submission(
+            title=data["title"],
+            presentation_type=data["presentation_type"],
+            is_draft=False,
+            submitter=Submitter.objects.get(id=self.request.user.id),
+        )
+        submission.save()
+        topic = Topic(name=data["topic"])
+        topic.save()
+        submission_details = SubmissionDetails(
+            submission=submission, topic=topic, bio=data["bio"]
+        )
+        submission_details.save()
+        for author in data["authors"]:
+            affilation = AuthorAffilation(
+                affilation=author["affilation"]["affilation"],
+                city=author["affilation"]["city"],
+                state=author["affilation"]["state"],
+                country=author["affilation"]["country"],
+            )
+            affilation.save()
+            author_details = SubmissionAuthorDetails(
+                submission_details=submission_details,
+                title=author["title"],
+                first_name=author["first_name"],
+                last_name=author["last_name"],
+                organization=author["organization"],
+                is_presenter=author["is_presenter"],
+                affilation=affilation,
+            )
+            author_details.save()
+        abstract = Abstract(submission=submission, content=data["abstract"])
+        abstract.save()
+
+        return JsonResponse(
+            {
+                "status": 1,
+                "message": _("Ok"),
+                "url": request.build_absolute_uri(
+                    reverse_lazy("submission_system:profile")
+                ),
+            }
+        )
