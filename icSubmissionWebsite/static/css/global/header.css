@@ -4,8 +4,9 @@
   margin-left: auto;
   margin-right: auto;
 }
-.header-img > imh {
+
+/* .header-img > img {
   overflow-clip-margin: content-box !important;
   overflow: clip !important;
   vertical-align: middle !important;
-}
+} */
