@@ -2,7 +2,7 @@
 <header>
   <!-- <div style="background-color: #3772AA"><img src="./0afbbd7a4a63413d8d6ca498a1a915fa.jpeg" style="max-width: 1130px;margin-left: auto;margin-right: auto;display: block; width: 100%;"></div> -->
   <div
-    class="uk-height-medium uk-background-cover uk-light"
+    class="uk-height-medium uk-background-cover uk-light uk-visible@s"
     data-src="{% static '/images/information_pages/header-img.png' %}?fit=crop&w=650&h=433&q=80"
     uk-img="loading: eager"
     style="height: 15rem"
@@ -17,40 +17,8 @@
         "
       >
         <div style="padding: 15px">
-          <span
-            class="header-heading"
-            style="
-              font-size: calc((100vw - 30rem) / (80 - 30) * (0.6 - 0.3) + 2rem);
-              font-weight: bold;
-              color: white;
-              text-shadow: 3px 2px 2px black;
-            "
-            >ICITS 2024</span
-          ><br />
-          <span
-            class="header-heading"
-            style="
-              font-size: calc(
-                (100vw - 30rem) / (80 - 30) * (0.8 - 0.6) + 1.4rem
-              );
-              font-weight: bold;
-              color: white;
-              text-shadow: 3px 2px 2px black;
-            "
-            >International Conference on Information and Technical Systems</span
-          >
-          <p
-            class="header-heading"
-            style="
-              font-size: calc(
-                (100vw - 30rem) / (80 - 30) * (0.8 - 0.6) + 0.9rem
-              );
-              color: white;
-              text-shadow: 3px 2px 2px black;
-            "
-          >
-            28-30 May 2024<br />RUDN Univeristy, Moscow, Russia
-          </p>
+            <p style="font-size: calc((100vw - 30rem) / (80 - 30) * (0.6 - 0.3) + 1.35rem); font-weight: bold; color: white">SCO/CIS<br>International Conference on Information and Technical Systems</p>
+            <p style="font-size: 14px; font-weight: 370; color:white;">28-30 May 2024<br>RUDN University<br> Moscow, Russia</p>
         </div>
         <div style="padding: 15px">
           <img
@@ -63,39 +31,36 @@
     </div>
   </div>
 
-  {% comment %}
   <div
-    class="uk-height-medium uk-background-cover uk-light"
-    data-src="{% static '/images/information_pages/header.png' %}?fit=crop&w=650&h=433&q=80"
+    class="uk-height-medium uk-background-cover uk-light uk-hidden@s"
+    data-src="{% static '/images/information_pages/header-img.png' %}?fit=crop&w=650&h=433&q=80"
     uk-img="loading: eager"
-    style="height: 10rem"
+    style="height: 15rem"
   >
-    <div
-      class="uk-container"
-      style="display: flex; justify-content: space-around"
-    >
-      <div style="padding: 15px">
-        <p
-          style="
-            font-size: calc((100vw - 30rem) / (80 - 30) * (0.8 - 0.6) + 0.9rem);
-            font-weight: bold;
-            color: white;
-          "
-        >
-          ICITS 2024<br />International Conference on Information and Technical
-          Systems<br /><br /><br />28-30 May 2024<br />RUDN, Moscow, Russia
-        </p>
-      </div>
-      <div style="padding: 15px">
-        <img
-          src="{% static '/images/information_pages/header-logo.png' %}"
-          width="300"
-          height="300"
-        />
+    <div class="uk-container" style="height: 100%">
+      <div
+        style="
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          height: 100%;
+        "
+      >
+        <div style="padding: 15px">
+            <p style="font-size: calc((100vw - 30rem) / (80 - 30) * (0.6 - 0.3) + 1.35rem); font-weight: bold; color: white; line-height: 1.4; margin: 0">SCO/CIS<br>International Conference on Information and Technical Systems</p>
+        </div>
+        <div style="padding: 15px">
+          <img style="min-width: 160px;"
+            src="{% static '/images/information_pages/header-logo.png' %}"
+            width="300"
+            height="300"
+          />
+          <p style="font-size: 14px; font-weight: 370; color:white; line-height: 1.2">28-30 May 2024<br>RUDN University<br> Moscow, Russia</p>
+        </div>
       </div>
     </div>
   </div>
-  {% endcomment %}
+
   <div class="uk-hidden@m">
     <div class="uk-position-relative">
       <nav class="uk-navbar-container" style="background-color: #002159">
