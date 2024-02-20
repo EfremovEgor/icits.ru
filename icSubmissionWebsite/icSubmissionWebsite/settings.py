@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "submission_system",
     "information_pages",
+    "russian",
 ]
 
 MIDDLEWARE = [

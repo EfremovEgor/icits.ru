@@ -6,5 +6,7 @@ urlpatterns = [
     # path(
     #     "submission/", include("submission_system.urls", namespace="submission_system")
     # ),
-    path("", include("information_pages.urls")),
+    path("en/", include("information_pages.urls")),
+    path("", include("russian.urls")),
+
 ]

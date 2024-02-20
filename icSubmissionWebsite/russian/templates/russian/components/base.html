@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+
+  <head>
+    <link
+      href="{% static '/images/favicon.png' %}"
+      type="image/png"
+      sizes="180x180"
+      rel="icon"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/information_pages/styles.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/global/footer.css' %}"
+    />
+    <link
+    rel="stylesheet"
+    href="{% static 'css/global/global.css' %}"
+  />
+  <link
+  rel="stylesheet"
+  href="{% static 'css/global/header.css' %}"
+  />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/uikit@3.17.1/dist/css/uikit.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.1/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.1/dist/js/uikit-icons.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <title>ICITS</title>
+  </head>
+  {% include "./header.html" %}
+  <body>
+    {% block content %} {% endblock %}
+  </body>
+  {% include "./footer.html" %}
+</html>
