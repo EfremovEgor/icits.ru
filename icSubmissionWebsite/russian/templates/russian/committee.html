@@ -1,4 +1,6 @@
 {% extends "./components/base.html" %} {% block content %} {% load static %}
+<link rel="stylesheet" href="{% static 'css/information_pages/committee/styles.css' %}" />
+
 <div
   class="uk-container"
   style="
@@ -6,19 +8,20 @@
     margin-bottom: 25px;
     max-width: 980px;
     min-height: 320px;
+    width: 100%;
   "
 >
   <h3
     style="
       font-size: 25px;
-      color: #002159;
+      color: #0056a6;
       font-weight: bold;
       margin: 1rem 0;
       font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
       text-align: justify;
     "
   >
-    ICITS Programme Committee
+    Программный комитет
   </h3>
   <p
     style="
@@ -31,5 +34,33 @@
   >
     Yury Razoumny - RUDN University
   </p>
+  <table class="uk-table uk-table-striped" style="color: #002159; font-size: 1.07rem;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; text-align: justify;">
+    <thead>
+        <tr>
+            <th>Table Heading</th>
+            <th>Table Heading</th>
+            <th>Table Heading</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Table Data</td>
+            <td>Table Data</td>
+            <td>Table Data</td>
+        </tr>
+        <tr>
+            <td>Table Data</td>
+            <td>Table Data</td>
+            <td>Table Data</td>
+        </tr>
+        <tr>
+            <td>Table Data</td>
+            <td>Table Data</td>
+            <td>Table Data</td>
+        </tr>
+    </tbody>
+</table>
+
+
 </div>
 {%endblock %}
