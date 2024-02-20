@@ -5,6 +5,9 @@
   margin-right: auto;
 }
 
+.uk-dropnav-dropbar {
+  background-color: #0056a6;
+}
 /* .header-img > img {
   overflow-clip-margin: content-box !important;
   overflow: clip !important;

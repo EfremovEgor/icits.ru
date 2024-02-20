@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 .uk-dropnav-dropbar {
-  background-color: #002159;
+  background-color: #0056a6;
 }
 
 .header-img {
@@ -24,7 +24,7 @@
   transition: 0.07s;
 }
 .uk-dropbar {
-  background-color: #002159 !important;
+  background-color: #0056a6 !important;
 }
 .uk-navbar-container {
   padding: 0px !important;

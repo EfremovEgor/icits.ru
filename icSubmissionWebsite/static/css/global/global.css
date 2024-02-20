@@ -4,10 +4,6 @@ body {
   flex-direction: column;
 }
 
-.uk-dropnav-dropbar {
-  background-color: #002159;
-}
-
 .header-img {
   display: block;
   width: 100%;
