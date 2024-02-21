@@ -1,0 +1,12 @@
+.committee-container {  
+    /* @media (min-width: 960px) {
+        padding-left: 40px;
+        padding-right: 40px;
+    }; */
+
+    @media (max-width: 1045px) {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+

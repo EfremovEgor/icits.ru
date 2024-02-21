@@ -1,4 +1,6 @@
 {% extends "./components/base.html" %} {% block content %} {% load static %}
+<link rel="stylesheet" href="{% static 'css/information_pages/committee/styles.css' %}" />
+
 <div
   class="uk-container"
   style="
@@ -6,30 +8,120 @@
     margin-bottom: 25px;
     max-width: 980px;
     min-height: 320px;
+    width: 100%;
+    padding: 0!important;
   "
 >
+  <div class="committee-container">
   <h3
     style="
       font-size: 25px;
-      color: #002159;
+      color: #0056a6;
       font-weight: bold;
       margin: 1rem 0;
       font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
       text-align: justify;
     "
   >
-    ICITS Programme Committee
+  Programme Committee
   </h3>
-  <p
-    style="
-      color: #002159;
-      margin: 1rem 0;
-      font-size: 1.07rem;
-      font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-      text-align: justify;
-    "
-  >
-    Yury Razoumny - RUDN University
-  </p>
+  <p style="color: #002159; font-size: 1.07rem;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; "><b>Председатель:</b></p>
+  <table class="uk-table uk-table-striped" style="color: #002159; font-size: 1.07rem;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; ">
+    <tbody>
+        <tr>
+            <td>Разумный Юрий Николаевич</td>
+            <td>Российский университет дружбы народов имени Патриса Лумумбы, Россия</td>
+        </tr>
+    </tbody>
+  </table>
+  <p style="color: #002159; font-size: 1.07rem;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; "><b>Заместитель председатель:</b></p>
+  <table class="uk-table uk-table-striped" style="color: #002159; font-size: 1.07rem;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; ">
+    <tbody>
+        <tr>
+          <td>Купреев Сергей Алексеевич</td>
+          <td>Российский университет дружбы народов имени Патриса Лумумбы, Россия</td>
+        </tr>
+    </tbody>
+  </table> 
+  <p style="color: #002159; font-size: 1.07rem;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; "><b>Члены комитета:</b></p>
+  <table class="uk-table uk-table-striped" style="color: #002159; font-size: 1.07rem;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; ">
+    <tbody>
+        <tr>
+            <td>Попов Сергей Викторович</td>
+            <td>АО «Швабе» Госкорпорации «Ростех», Россия</td>
+        </tr>
+        <tr>
+          <td>Ильичев Вячеслав Александрович</td>
+          <td>Научно-исследовательский институт строительной физики РААСН, Россия</td>
+        </tr>
+        <tr>
+          <td>Ерёменко Виталий Андреевич</td>
+          <td>Национальный исследовательский технологический университет «МИСиС», Россия</td>
+        </tr>
+        <tr>
+          <td>Буркова Ирина Владимировна</td>
+          <td>Институт проблем управления им. В.А. Трапезникова РАН, Россия</td>
+        </tr>
+        <tr>
+          <td>Ali Reza Amiri Asfarjani</td>
+          <td>Shahrood University of Technology, Иран</td>
+        </tr>
+        <tr>
+          <td>Sogand Moslemi Mehni</td>
+          <td>Islamic Azad University, Иран</td>
+        </tr>
+        <tr>
+          <td>Paing Thet</td>
+          <td>Yangon Technological University, Мьянма</td>
+        </tr>
+        <tr>
+          <td>Andrej Miller</td>
+          <td>Baltic Wind Group Baltic WindWerke GmbH & Co. KG., Германия</td>
+        </tr>
+        <tr>
+          <td>Alfredo Matias Huamani Huaccan</td>
+          <td>Global Yaku Consultores SAC, Перу</td>
+        </tr>
+        <tr>
+          <td>Ahmed Abdelmaksoud</td>
+          <td>Khalifa University, ОАЭ</td>
+        </tr>
+        <tr>
+          <td>Shufan Wu</td>
+          <td>Shanghai Jiao Tong University, Китай</td>
+        </tr>
+        <tr>
+          <td>Ketan Kotecha</td>
+          <td>Dean of Symbiosis Institute of Technology, Индия</td>
+        </tr>
+        <tr>
+          <td>Meena Laad</td>
+          <td>Symbiosis Institute of Technology, Индия</td>
+        </tr>
+        <tr>
+          <td>Санжаровский Рудольф Сергеевич</td>
+          <td>Евразийский национальный университет имени Л.Н. Гумилева, Республика Казахстан</td>
+        </tr>
+        <tr>
+          <td>Тур Виктор Владимирович</td>
+          <td>Брестский государственный технический университет, Республика Беларусь</td>
+        </tr>
+        <tr>
+          <td>Федоров Виктор Сергеевич</td>
+          <td>Российский университет транспорта, Россия</td>
+        </tr>
+        <tr>
+          <td>Ravinder Rena</td>
+          <td>Durban University of Technology, ЮАР</td>
+        </tr>
+        <tr>
+          <td>Сулайманова Бактыгуль Женишевна</td>
+          <td>Кыргызский Государственный Технический Университет им. И. Раззакова, Кыргызская Республика</td>
+        </tr>
+        
+    </tbody>
+</table>
+
+  </div>
 </div>
 {%endblock %}
