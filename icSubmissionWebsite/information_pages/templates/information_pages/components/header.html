@@ -237,17 +237,35 @@
                         >
                       </li>
                       
+                      
                     </ul>
                   </div>
                 </li>
               </ul>
             </div>
-            <!-- <div class="uk-navbar-right">
+            <div class="uk-navbar-right">
                               <ul class="uk-navbar-nav">
-                                  <li>
-                                      <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="#"></a>
-                                  </li>
-                          </div> -->
+                                <li class="uk-active">
+                                  <a
+                                    class="uk-column-span"
+                                    href="{{request.path|replace_en}}"
+                                    style="
+                                      color: white;
+                                      opacity: 0.5;
+                                      padding: 0.5rem 1rem;
+                                      padding-left: 0;
+                                      padding-right: 0;
+                                      display: block;
+                                      font-size: 1.07rem;
+                                      font-weight: 300;
+                                      font-family: Arial, 'Helvetica Neue', Helvetica,
+                                        sans-serif;
+                                      display: flex
+                                    "
+                                    ><img style="text-align: center;" src="{% static '/images/information_pages/flag-ru.png' %}" width="40"  height="40"></a
+                                  >
+                                </li>
+              </div>
           </div>
         </div>
       </nav>
